@@ -232,10 +232,18 @@ Dù cho quy ước / thư viện CSS bạn chọn là gì, nguyên tắc chung l
             
             
             
-            https://mithril.js.org/styles.css" rel="stylesheet">
-        
-        
-            ">https://mithril.js.org/bin/app.js">
+           <!doctype html>
+           <html>
+               <head>
+                   <meta charset="utf-8" />
+                   <meta name="viewport" content="width=device-width, initial-scale=1" />
+                   <title>My Application</title>
+                   <link href="styles.css" rel="stylesheet" />
+               </head>
+               <body>
+                   <script src="bin/app.js"></script>
+               </body>
+           </html>
         
     
     
