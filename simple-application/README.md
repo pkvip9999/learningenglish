@@ -36,11 +36,11 @@ Có thể xem một ví dụ ở đây [flems: Simple Application](https://flems
     
     
 
-Dòng `<!doctype html>` thể hiện đây là một văn bản HTML5. Đầu tiên thẻ meta `charset` cho biết dạng mã hóa của tài văn bản và thẻ meta `viewport` ra lệnh cho trình duyệt điện thoại phải làm sao hiển thị tỉ lệ trang . Thẻ `title`   chứa văn bản được hiển thị trên tab trình duyệt của ứng dụng này, và thẻ `script` cho biết đường dẫn tới file js là gì.
+Dòng `<!doctype html>` thể hiện đây là một văn bản HTML5. Đầu tiên thẻ meta `charset` cho biết dạng mã hóa của văn bản và thẻ meta `viewport` ra lệnh cho trình duyệt điện thoại phải làm sao hiển thị tỉ lệ trang . Thẻ `title`   chứa văn bản được hiển thị trên tab trình duyệt của ứng dụng này, và thẻ `script` cho biết đường dẫn tới file js là gì.
 
-Chúng ta có thẻ tạo ứng dụng trong một file Javascrip riêng biệt, nhưng làm như thế sẽ gây khó khăn cho việc codebase sau này. Thay vào đó hãy chia code thành các _modules_, and và lắp các _modules_ thành một _bundle_ `bin/app.js`.
+Chúng ta có thẻ tạo ứng dụng trong một file Javascrip riêng biệt, nhưng làm như thế sẽ gây khó khăn cho việc codebase sau này. Thay vào đó hãy chia code thành các _modules_, và gom nhóm các _modules_ thành một _bundle_ `bin/app.js`.
 
-Có nhiều cách để cài đặt một bundler tool, nhưng hầu hết là được phân phối qua NPM. Trên thực tế, các thư viện js và công cụ hiện đại nhất đều được cài đặt theo các đó , Bao gồm cả Mithril. NPM là viết tắt của Node.js Package Manager. Tải NPM tại đây [install Node.js](https://nodejs.org/en/); NPM được cài đặt tự động. Khi đã cài Node.js và NPM, mở command line chạt câu lệnh :
+Có nhiều cách để cài đặt một bundler tool, nhưng hầu hết là được phân phối qua NPM. Trên thực tế, các thư viện js và công cụ hiện đại nhất đều được cài đặt theo các đó , Bao gồm cả Mithril. NPM là viết tắt của Node.js Package Manager. Tải NPM tại đây [install Node.js](https://nodejs.org/en/); NPM được cài đặt tự động. Khi đã cài Node.js và NPM, mở command line chạy câu lệnh :
     
     
     npm init -y
@@ -51,7 +51,7 @@ Nếu NPM được cài đặt thành công thì một file `package.json` sẽ 
 * * *
 Để cài đặt Mithril, hãy làm theo hướng dẫn trên trang [installation](https://mithril.js.org/installation.html). Khi đã có một khung của project với Mithril đã được cài, chúng ta đã sẵn sàng tạo ứng dụng.
 
-Hãy tạo một module để lưu trữ và và một file có tên `src/models/User.js`
+Hãy tạo một module để lưu trữ trạng thái. Hãy tạo file có tên `src/models/User.js`
     
     
     // src/models/User.js
@@ -448,7 +448,7 @@ Bây giờ, hãy sửa đổi `Userlist` view để chúng ta có thể điều 
     }
     
 
-Ở đây chúng ta đã thay đổi `.user-list-item` thành `a.user-list-item`. Chúng tôi đã thêm một `href` tham chiếu tuyến đường mà chúng tôi muốn và cuối cùng chúng tôi đã thêm `oncreate: m.route.link`. Điều này làm cho liên kết hoạt động giống như một liên kết định tuyến (trái ngược với việc chỉ hoạt động giống như một liên kết thông thường). Điều này có nghĩa là việc nhấp vào liên kết sẽ thay đổi một phần của URL xuất hiện sau hashbang `#!` (do đó thay đổi tuyến đường mà không dỡ tải trang HTML hiện tại)
+Ở đây chúng ta đã thay đổi `.user-list-item` thành `a.user-list-item`. Chúng ta đã thêm một `href` tham chiếu tuyến đường mà chúng ta muốn và cuối cùng chúng ta đã thêm `oncreate: m.route.link`. Điều này làm cho liên kết hoạt động giống như một liên kết định tuyến (trái ngược với việc chỉ hoạt động giống như một liên kết thông thường). Điều này có nghĩa là việc nhấp vào liên kết sẽ thay đổi một phần của URL xuất hiện sau hashbang `#!` (do đó thay đổi tuyến đường mà không dỡ tải trang HTML hiện tại)
 
 Nếu bạn làm mới trang trong trình duyệt, bây giờ bạn có thể nhấp vào một người và được đưa đến một biểu mẫu. Bạn cũng có thể nhấn nút quay lại trong trình duyệt để quay lại từ biểu mẫu tới danh sách mọi người.
 
@@ -484,9 +484,9 @@ Bản thân biểu mẫu vẫn không lưu khi bạn nhấn "Lưu". Hãy làm ch
     }
     
 
-Chúng tôi đã thêm các sự kiện `oninput` vào cả hai đầu vào, đặt thuộc tính `User.current.firstName` và `User.current.lastName` khi người dùng nhập.
+Chúng ta đã thêm các sự kiện `oninput` vào cả hai đầu vào, đặt thuộc tính `User.current.firstName` và `User.current.lastName` khi người dùng nhập.
 
-Ngoài ra, chúng tôi đã tuyên bố rằng phương thức `User.save` nên được gọi khi nhấn nút “Lưu”. Hãy thực hiện phương thức đó:
+Ngoài ra, chúng ta đã tuyên bố rằng phương thức `User.save` nên được gọi khi nhấn nút “Lưu”. Hãy thực hiện phương thức đó:
     
     
     // src/models/User.js
