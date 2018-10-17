@@ -30,9 +30,9 @@ Image from:
 
 > "[Go sẽ là ngôn ngữ của máy chủ trong tương lai][8]" — Tobias Lütke, Shopify
 
-Trong vài năm qua, có sự phát triển của ngôn ngữ lập trình mới: [**Go or GoLang**][9]. Không điều gì làm cho một lập trình viên phấn khich hơn là một ngôn ngữ lập trình mới, đúng không? Vì thế, tôi đã bắt đầu học Go 4 5 tháng trước và ở đây tôi sẽ nói cho bạn biết về tại sao bạn nên học ngôn ngữ lập trình mới đó.
+Trong vài năm qua, có sự phát triển của ngôn ngữ lập trình mới: [**Go or GoLang**][9]. Không điều gì làm cho một lập trình viên phấn khích hơn là một ngôn ngữ lập trình mới, đúng không? Vì thế, tôi đã bắt đầu học Go 4 5 tháng trước và ở đây tôi sẽ nói cho bạn biết về tại sao bạn nên học ngôn ngữ lập trình mới đó.
 
-Tôi sẽ không dạy bạn, làm sao bạn có thể viết "Hello World" trong bài viết này. Có nhiều bài viết trực tuyến khác về điều đó. **Tôi sẽ giải thích giai đoạn hiện tại của phần cứng và phần mền của mấy tính và tại sao chúng ta nên học một ngôn ngữ nới như?** Bởi vì nếu không có vấn đề gì thì chúng ta đã không cần giải pháp, đúng không?
+Tôi sẽ không dạy bạn, làm sao bạn có thể viết "Hello World" trong bài viết này. Có nhiều bài viết trực tuyến khác về điều đó. **Tôi sẽ giải thích giai đoạn hiện tại của phần cứng và phần mền của mấy tính và tại sao chúng ta nên học một ngôn ngữ nới như Go?** Bởi vì nếu không có vấn đề gì thì chúng ta đã không cần giải pháp, đúng không?
 
 * * *
 
@@ -44,7 +44,7 @@ Tôi sẽ không dạy bạn, làm sao bạn có thể viết "Hello World" tron
 
 ![][13]
 
-Từ biểu đồ bạn có thể thấy rằng hiệu suất đơn luồng và tần số của bộ vi xử lý vẫn không tahy đổi trong gần một thập kỷ qua. Nếu bạn nghĩ việc thêm transistor là giải pháp thế thì bạn sai rồi.Đó là bở vì trong phạm vi nhỏ hơn  thì một số vấn đề lượng tử bắt đầu xuất hiện (như tunneling) và bởi vì việc đưa thêm transistor vào sẽ tốn nhiều chi phí hơn([tại sao?][14]) và  số transistors bạn có thể thêm vào mỗi dollar băt đầu giảm.
+Từ biểu đồ bạn có thể thấy rằng hiệu suất đơn luồng và tần số của bộ vi xử lý vẫn không thay đổi trong gần một thập kỷ qua. Nếu bạn nghĩ việc thêm transistor là giải pháp thế thì bạn sai rồi.Đó là bở vì trong phạm vi nhỏ hơn  thì một số vấn đề lượng tử bắt đầu xuất hiện (như tunneling) và bởi vì việc đưa thêm transistor vào sẽ tốn nhiều chi phí hơn([tại sao?][14]) và  số transistors bạn có thể thêm vào mỗi dollar băt đầu giảm.
 
 vì vậy để giải quyết vấn đề trên
 
@@ -52,17 +52,17 @@ vì vậy để giải quyết vấn đề trên
 * Chúng ta cũng giới thiệu hyper-threading.
 * Thêm bộ nhớ cache vào bộ xứ lý để tăng hiệu suất
 
-Nhưng các giải pháp trên cũng có giới hạn của nó. Chúng ta không thể thêm nhiều hơn bộ nhớ cache vào bộ vi xử lý để tăng hiệu suất vì bộ nhớ cache cũng có giới hạn vật lý, bộ nhớ lớn hơn thì chậm hơn. Thêm nhiều nhân hơn vào bộ vi xử lý thì nó cũng đắt hơn. Ngoài ra điều đó không thể là vô tận. Các bộ xử lý đa nhân này có thể  chạy đa luồng và điều đó mang lại sư đồng bộ cho bức tranh. Chúng ta sẽ thảo luận .
+Nhưng các giải pháp trên cũng có giới hạn của nó. Chúng ta không thể thêm nhiều hơn bộ nhớ cache vào bộ vi xử lý để tăng hiệu suất vì bộ nhớ cache cũng có giới hạn vật lý, bộ nhớ lớn hơn thì chậm hơn. Thêm nhiều nhân hơn vào bộ vi xử lý thì nó cũng đắt hơn. Ngoài ra điều đó không thể là vô tận. Các bộ xử lý đa nhân này có thể  chạy đa luồng và điều đó mang lại sư đồng bộ cho bức tranh. Chúng ta sẽ thảo luận sau.
 
 Vì vậy nếu ta không thể dựa vào những cải tiến phần , chỉ còn một con đường duy nhất là phần mền hiệu quả hơn để tăng hiệu suất. Nhưng thật đáng buồn, ngôn ngữ lập trình hiện đại không hiệu quả 
 
-> "Bộ vi xử lý hiện đại giống như những chiếc xe vui nhộn nito, chúng nổi trội ở phần tư dặm. Khonong may nhưng ngôn ngữ lập trình hiện đại giống như Monte Carlo, chúng đủ khúc khuỷu." — [David Ungar][15]
+> "Bộ vi xử lý hiện đại giống như những chiếc xe vui nhộn nito, chúng nổi trội ở phần tư dặm đầu. Không may may nhưng ngôn ngữ lập trình hiện đại giống như Monte Carlo, chúng đủ khúc khuỷu." — [David Ungar][15]
 
 * * *
 
 ### **Go có goroutines !!**
 
-Như chúng ta đã thảo luận ở trên, các nhà sản xuất đang thêm nhiều nhân hơn vào bộ vi sử lý để tăng hiệu suất. Tất cả các trung tâm dữ liệu  đềuđang chạy trên những bô vi xử lý đó  và chúng ta sẽ mong đợi sự gia tăng về nhân trong những năm sắp tới. Thêm vào đó, những ứng dụng ngày nay sử dụng nhiều  micro-services để duy trì kết nối cở sử dữ liệu, message queues và duy trì bộ nhớ cache. vì thế, phần mền chúng ta phát triển và những ngôn ngư lập trình nên hỗ trợ đồng thời và chúng co khả năng mở rộng với số lượng core tăng lên.
+Như chúng ta đã thảo luận ở trên, các nhà sản xuất đang thêm nhiều nhân hơn vào bộ vi sử lý để tăng hiệu suất. Tất cả các trung tâm dữ liệu  đều đang chạy trên những bô vi xử lý đó  và chúng ta sẽ mong đợi sự gia tăng về nhân trong những năm sắp tới. Thêm vào đó, những ứng dụng ngày nay sử dụng nhiều  micro-services để duy trì kết nối cở sử dữ liệu, message queues và duy trì bộ nhớ cache. vì thế, phần mền chúng ta phát triển và những ngôn ngư lập trình nên hỗ trợ đồng thời và chúng co khả năng mở rộng với số lượng core tăng lên.
 
 Nhưng, hầu hết các ngôn ngữ lập trình hiện đại(như Java, Python etc.) đến từ môi trường đơn luồng 90s. Hầu hết các ngôn ngữ lập trình đều hỗ trợ đa luồng. Nhưng khi thực hiện đồng thời thì có vấn đề xảy ra, threading-locking, race conditions và deadlocks.Những điều đó làm cho việc tạo ra một ứng dụng đa luông trên những ngôn ngữ đó trở nên khó khăn.
 
@@ -78,7 +78,7 @@ Cách Goroutines hoạt động?  [Reffrance]( http://golangtutorials.blogspot.i
 
 * Goroutines có ngăn xếp phân đoạn và có thể phát triển.Diều đó có nghĩa là nó sẽ chỉ sử dụng nhiều bộ nhớ hơn khi cần thiết.
 * Goroutines có thời gian khởi động nhanh hơn luồng.
-* Goroutines xây dựng cùng với primitives để giao tiếp an toàn giữa các 
+* Goroutines xây dựng cùng với primitives để giao tiếp an toàn giữa các kênh.
 * Goroutines cho phép bạn tránh phải sử dụng khóa mutex khi chia sể cấu trúc dữ liệu.
 * Mặc dù, goroutines và  luồng OS không có ánh xạ 1:1.  Một goroutine  đơn có thể chạy trên nhiều luồng. Nhiều Goroutine được ghép thành số lượng nhỏ các luồng OS.
 
@@ -136,7 +136,8 @@ Biểu đồ trên hiển thị rằng Go gần như hiệu quả như C / C ++,
 ### Go được hỗ trợ bởi Google.
 
 * Tôi biết đây không phải là một lợi thế kỹ thuật trực tiếp. Tuy nhiên, Go được thiết kế và hỗ trợ bởi Google. Google có một trong những cơ sở hạ tầng đám mây lớn nhất trên thế giới và nó được mở rộng quy mô. Go được thiết kế bởi Google để giải quyết các vấn đề của họ về hỗ trợ khả năng mở rộng và hiệu quả. Đó là những vấn đề tương tự bạn sẽ phải đối mặt trong khi tạo ra các máy chủ của riêng bạn.
-*Thêm vào đó Go cũng được sử dụng bởi một số công ty lớn như Adobe, BBC, IBM, Intel và thậm chí [Medium][23].  _([Source]( https://github.com/golang/go/wiki/GoUsers))_
+
+* Thêm vào đó Go cũng được sử dụng bởi một số công ty lớn như Adobe, BBC, IBM, Intel và thậm chí [Medium][23].  _([Source]( https://github.com/golang/go/wiki/GoUsers))_
 
 ### **Kết:**
 
