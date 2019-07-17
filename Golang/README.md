@@ -26,13 +26,13 @@ Jan 8, 2017
 
 ![][7]
 
-Image from: 
+Ảnh từ: 
 
 > "[Go sẽ là ngôn ngữ của máy chủ trong tương lai][8]" — Tobias Lütke, Shopify
 
-Trong vài năm qua, có sự phát triển của ngôn ngữ lập trình mới: [**Go or GoLang**][9]. Không điều gì làm cho một lập trình viên phấn khích hơn là một ngôn ngữ lập trình mới, đúng không? Vì thế, tôi đã bắt đầu học Go 4 5 tháng trước và ở đây tôi sẽ nói cho bạn biết về tại sao bạn nên học ngôn ngữ lập trình mới đó.
+Trong vài năm qua,đây là sự tăng trưởng mạnh mẽ của một ngôn ngữ lập trình mới : [**Go hay còn gọi là GoLang**][9]. Không điều gì làm cho một lập trình viên phấn khích hơn là một ngôn ngữ lập trình mới, đúng không? Vì thế, tôi đã bắt đầu học Go 4 5 tháng trước và ở đây tôi sẽ nói cho bạn biết về tại sao bạn nên học ngôn ngữ lập trình mới đó.
 
-Tôi sẽ không dạy bạn, làm sao bạn có thể viết "Hello World" trong bài viết này. Có nhiều bài viết trực tuyến khác về điều đó. **Tôi sẽ giải thích giai đoạn hiện tại của phần cứng và phần mền của mấy tính và tại sao chúng ta nên học một ngôn ngữ nới như Go?** Bởi vì nếu không có vấn đề gì thì chúng ta đã không cần giải pháp, đúng không?
+Tôi sẽ không dạy bạn,cách để bạn có thể viết "Hello World" trong bài viết này. Có nhiều bài viết trực tuyến khác về điều đó. **Tôi sẽ giải thích giai đoạn hiện tại của phần cứng và phần mềm của mấy tính và tại sao chúng ta nên học một ngôn ngữ nới như Go?** Bởi vì nếu không có vấn đề gì thì chúng ta đã không cần giải pháp, đúng không?
 
 * * *
 
@@ -40,7 +40,7 @@ Tôi sẽ không dạy bạn, làm sao bạn có thể viết "Hello World" tron
 
 [**Định luật *Moore*][10]** đang sai.**
 
-Đầu tiên bộ vi sử lý Pentium 4 với với tốc độ 3.0GHz đã được [giới thiệu bởi Intel năm 2004][11] by Intel. Ngày nay, [Mackbook Pro 2016][12] của tôi có tốc độ  2.9GHz. Bởi vì, gần một thập kỷ không có quá nhiều thu hoạch đột phá trong sức mạnh xử lý. Chúng ta có thể nhìn thấy so sánh sự tăng sức mạnh xử lý theo từng năm trong biểu đồ dưới đây.
+Đầu tiên bộ vi sử lý Pentium 4 với với tốc độ 3.0GHz đã được [giới thiệu bởi Intel năm 2004][11] by Intel. Ngày nay, [Mackbook Pro 2016][12] của tôi có tốc độ  2.9GHz.  Vì vậy , trải qua gần 1 thập kỷ , không có quá nhiều hiệu quả đột phá trong sức mạnh xử lý. Chúng ta có thể nhìn thấy so sánh sự tăng sức mạnh xử lý theo từng năm trong biểu đồ dưới đây.
 
 ![][13]
 
